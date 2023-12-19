@@ -1,0 +1,56 @@
+﻿@using KumasStokTakip.Models.Entity
+@model List<Tbl_KumasTipi>
+@{
+    ViewBag.Title = "ListKumas";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<br />
+
+
+
+
+<br />
+
+<h2>Kumaş Listeleme Sayfası</h2>
+<br />
+
+<a href="/KumasTipi/AddKumas/" class="btn btn-info">Yeni Kumaş Ekle</a> 
+<br />
+<br />
+@using (Html.BeginForm("ListKumas", "KumasTipi", FormMethod.Get))
+{
+    <p>
+        Aranacak Kumaş Adı:@Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </p>
+
+}
+<br />
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Kumaş Adı</th>
+        <th>Kumaş Tipi</th>
+        <th>Detay</th>
+        <th>Düzenle</th>
+        <th>Sil</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.KumasAdi</td>
+            <td>@item.Tip.TipAdı</td>
+            <td><a href="/KumasOzellikleri/ListKumasOzellikleri/@item.ID" class="btn btn-info">Detay</a></td>
+            <td><a href="/KumasTipi/UpdateKumas/@item.ID" class="btn btn-warning">Düzenle</a></td>
+            <td><a href="/KumasTipi/DeleteKumas/@item.ID" class="btn btn-danger">Sil</a></td>
+        </tr>
+    }
+
+</table>
+<br />
+

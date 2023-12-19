@@ -1,0 +1,40 @@
+﻿@using KumasStokTakip.Models.Entity
+@model List<Tip>
+@{
+    ViewBag.Title = "DeletedListTip";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2> Silinen Tipler Sayfası</h2>
+
+@using (Html.BeginForm("DeletedListTip", "DeletedTip", FormMethod.Get))
+{
+    <p>
+        Aranacak Kumaş Tipi:@Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </p>
+
+}
+<br />
+<br />
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Kumaş Tipi</th>
+        <th>Yeniden Ekle</th>
+
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.TipAdı</td>
+            <td><a href="/DeletedTip/UpdateDeletedTip/@item.ID" class="btn btn-info">Yeniden Ekle</a></td>
+            
+        </tr>
+    }
+
+</table>
+<br />

@@ -1,0 +1,25 @@
+﻿@model KumasStokTakip.Models.Entity.Tbl_KumasTipi
+@{
+    ViewBag.Title = "UpdateKumas";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Kumaş Güncelleme Sayfası</h2>
+
+
+@using (Html.BeginForm("UpdateKumas", "KumasTipi", FormMethod.Post))
+{ 
+    <div class="form-group">
+
+        <br />
+        @Html.Label("Kumaş Adı")
+        @Html.TextBoxFor(x => x.KumasAdi, new { @class = "form-control" })
+        <br />
+        @Html.Label("Kumaş Tipi")
+        @Html.DropDownListFor(x => x.TipID, (List<SelectListItem>)ViewBag.vlc, new { @class = "form-control" })
+        <br />
+        <button class=" btn btn-success">Kaydet</button>
+
+    </div>
+}
+

@@ -1,0 +1,17 @@
+﻿@model KumasStokTakip.Models.Entity.Tip
+@{
+    ViewBag.Title = "AddTip";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2>Kumaş Tipi Ekleme Sayfası</h2>
+<br />
+<form method="post">
+    @Html.Label("Kumaş Tipinin Adını Giriniz")
+    @Html.TextAreaFor(x => x.TipAdı , new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.TipAdı, "", new { @style = "color:red" })
+   
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+</form>
